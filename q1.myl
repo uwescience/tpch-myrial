@@ -4,7 +4,7 @@ q1 = select l_returnflag,
        l_linestatus, 
        sum(l_quantity) as sum_qty,
        sum(l_extendedprice) as sum_base_price,
-       count(*) as count_order
+       count(l_quantity) as count_order  -- really COUNT(*)
 from
        lineitem;
 --auto group by l_returnflag, l_linestatus 
