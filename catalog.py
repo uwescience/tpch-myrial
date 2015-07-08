@@ -29,4 +29,52 @@
       ('p_retailprice', 'DOUBLE_TYPE'),
       ('p_comment', 'STRING_TYPE')],
 
+    'public:adhoc:supplier' : [
+      ('s_suppkey', 'LONG_TYPE'),
+      ('s_name', 'STRING_TYPE'),
+      ('s_address', 'STRING_TYPE'),
+      ('s_nationkey', 'LONG_TYPE'),
+      ('s_phone','STRING_TYPE'),
+      ('s_acctbal', 'DOUBLE_TYPE'),
+      ('s_comment', 'STRING_TYPE')],
+
+      'public:adhoc:partsupp' : [
+      ('ps_partkey',   'LONG_TYPE'),
+      ('ps_suppkey', 'LONG_TYPE'),
+      ('ps_availqty', 'LONG_TYPE'),
+      ('ps_supplycost', 'DOUBLE_TYPE'),
+      ('ps_comment', 'STRING_TYPE')],
+
+    'public:adhoc:customer' : [
+        ('c_custkey', 'LONG_TYPE'),
+        ('c_name', 'STRING_TYPE'),
+        ('c_address', 'STRING_TYPE'),
+        ('c_nationkey', 'LONG_TYPE'),
+        ('c_phone', 'STRING_TYPE'),
+        ('c_acctbal', 'STRING_TYPE'),
+        ('c_mktsegment', 'STRING_TYPE'),
+        ('c_comment', 'STRING_TYPE')],
+
+    'public:adhoc:orders' : [
+        ('o_orderkey', 'LONG_TYPE'),
+        ('o_custkey', 'LONG_TYPE'),
+        ('o_orderstatus', 'STRING_TYPE'), # size 1
+        ('o_totalprice', 'STRING_TYPE'),
+        ('o_orderdate', 'STRING_TYPE'),
+        ('o_orderpriority', 'STRING_TYPE'),
+        ('o_clerk', 'STRING_TYPE'),
+        ('o_shippriority', 'LONG_TYPE'),
+        ('o_comment', 'STRING_TYPE')],
+
+    'public:adhoc:nation' : [
+        ('n_nationkey', 'LONG_TYPE'),  # 25 nations
+        ('n_name', 'STRING_TYPE'),
+        ('n_regionkey', 'LONG_TYPE'),
+        ('n_comment', 'STRING_TYPE')],
+
+    'public:adhoc:region' : [
+        ('r_regionkey', 'LONG_TYPE'), # 5 regions
+        ('r_name', 'STRING_TYPE'),
+        ('r_comment', 'STRING_TYPE')],
+
 }
