@@ -11,7 +11,12 @@ q1 = select l_returnflag,
        FLOAT(sum(l_discount))/count(l_discount) as avg_qty, -- avg
        count(l_quantity) as count_order  -- really COUNT(*)
 from
-       lineitem;
+       lineitem
+where 
+  l_shipdate <= "1998-10-01";       -- TODO fill in delta automatically
 --auto group by l_returnflag, l_linestatus 
+
+-- TODO
+-- order by l_returnflag, l_linestatus
 
 store(q1, q1);
