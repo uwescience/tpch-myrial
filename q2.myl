@@ -18,11 +18,11 @@ min_ps_supplycost_relation = select
 			p_partkey as min_partkey,
             min(ps_supplycost) as min_ps_supplycost
 		from
+            part,    
 			partsupp,
 			supplier,
 			nation,
-			region,
-            part     
+			region
 		where
 			p_partkey = ps_partkey
 			and s_suppkey = ps_suppkey
@@ -41,8 +41,8 @@ q2 = select
 	s_comment
 from
 	part,
-	supplier,
 	partsupp,
+	supplier,
 	nation,
 	region,
     min_ps_supplycost_relation
