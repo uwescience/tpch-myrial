@@ -1,0 +1,32 @@
+lineitem = scan('lineitem');
+customer = scan('customer');
+orders = scan('orders');
+-- $ID$
+-- TPC-H/TPC-R Shipping Priority Query (Q3)
+-- Functional Query Definition
+-- Approved February 1998
+
+q3 = select
+	l_orderkey,
+	sum(l_extendedprice * (1 - l_discount)) as revenue,
+	o_orderdate,
+	o_shippriority
+from
+	customer,
+	orders,
+	lineitem
+where
+	c_mktsegment = ':1'
+	and c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and o_orderdate < ':2'
+	and l_shipdate > ':2';
+--group by         -- myrial doesn't need these
+--	l_orderkey,
+--	o_orderdate,
+--	o_shippriority
+--TODO order by
+--TODO 	revenue desc,
+--TODO 	o_orderdate;
+
+store(q3, q3);

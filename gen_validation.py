@@ -20,6 +20,7 @@ def generate(query):
 
     # qgen puts in windows line endings ^M, remove them
     subprocess.check_call("sed 's/{cr}//g' <{inf} >{of}".format(of=resultf, inf=intermf, query=query, cr=chr(13)), shell=True, stderr=sys.stdout)
+    os.remove(intermf)
 
 
 for q in range(1,22+1):

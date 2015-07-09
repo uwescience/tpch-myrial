@@ -25,12 +25,12 @@ min_ps_supplycost_relation = select
 			region
 		where
 			p_partkey = ps_partkey
-	    and p_size = {SIZE}   -- [1 , 50]
-	--TODO and p_type like '%TIN' -- syllable3
+	    and p_size = :1   -- [1 , 50]
+	--TODO and p_type like '%:2' -- syllable3
 			and s_suppkey = ps_suppkey
 			and s_nationkey = n_nationkey
 			and n_regionkey = r_regionkey
-			and r_name = '{REGION}';
+			and r_name = ':3';
 
 q2 = select
 	s_acctbal,
@@ -51,11 +51,11 @@ from
 where
 	p_partkey = ps_partkey
 	and s_suppkey = ps_suppkey
-	and p_size = {SIZE}   -- [1 , 50]
-	--TODO and p_type like '%TIN' -- syllable3
+	and p_size = :1   -- [1 , 50]
+	--TODO and p_type like '%:2' -- syllable3
 	and s_nationkey = n_nationkey
 	and n_regionkey = r_regionkey
-	and r_name = '{REGION}' -- R_NAME
+	and r_name = ':3' -- R_NAME
 	and ps_supplycost = min_ps_supplycost
     and min_partkey = p_partkey;
 --order by
