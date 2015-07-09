@@ -24,6 +24,7 @@
       ('p_name', 'STRING_TYPE'),
       ('p_mfgr', 'STRING_TYPE'),
       ('p_brand', 'STRING_TYPE'),
+      ('p_type', 'STRING_TYPE'),
       ('p_size', 'LONG_TYPE'),
       ('p_container', 'STRING_TYPE'),
       ('p_retailprice', 'DOUBLE_TYPE'),
