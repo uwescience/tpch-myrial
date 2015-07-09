@@ -13,7 +13,7 @@ q1 = select l_returnflag,
 from
        lineitem
 where 
-  l_shipdate <= "1998-10-01";       -- TODO fill in delta automatically
+  l_shipdate <= "1998-09-01";       -- TODO fill in delta automatically; validation is 90 days delta
 --auto group by l_returnflag, l_linestatus 
 
 -- TODO
