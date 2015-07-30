@@ -52,7 +52,7 @@
         ('c_address', 'STRING_TYPE'),
         ('c_nationkey', 'LONG_TYPE'),
         ('c_phone', 'STRING_TYPE'),
-        ('c_acctbal', 'STRING_TYPE'),
+        ('c_acctbal', 'DOUBLE_TYPE'),
         ('c_mktsegment', 'STRING_TYPE'),
         ('c_comment', 'STRING_TYPE')],
 
