@@ -10,7 +10,7 @@ localsoftlink="${4:-}"
 flags=""
 
 if [ -n $localsoftlink ]; then
-    flags+=--localsoftlink
+    flags+=" --local-softlink-data --softlink-data"
 fi
 
 cwd=`pwd`
