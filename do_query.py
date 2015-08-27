@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
 
     p = argparse.ArgumentParser(prog=sys.argv[0])
-    p.add_argument("querynum", required=True, help="tpch query number")
+    p.add_argument("querynum", help="tpch query number")
     p.add_argument("--no-regenerate", action="store_true", dest="no_regenerate", help="Do not re-run Raco on the query")
     p.add_argument("--compiler", dest="compiler", default="push", help="Radish compilation strategy {push,iterator}")
     p.add_argument("--build-mode", dest="build_mode", default="Release", help="Grappa build mode {Release,Debug}")
