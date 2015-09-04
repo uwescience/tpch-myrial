@@ -10,7 +10,7 @@ localsoftlink="${4:-}"
 flags=""
 
 if [ -n $localsoftlink ]; then
-    flags+=" --local-softlink-data --softlink-data"
+    flags+=" --local-softlink-data --softlink-data --allow-failed-upload"
 fi
 
 cwd=`pwd`
