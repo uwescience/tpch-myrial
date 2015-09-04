@@ -60,7 +60,7 @@ if __name__ == "__main__":
 
         # compile cpp
         if not os.path.isfile("{}.exe".format(source_name)):
-            subprocess.check_call("{c} --mode={mode}".format(c=args.configure, mode=mode), shell=True)
+            subprocess.check_call("{c} --mode={mode}".format(c=args.configure, mode=args.build_mode), shell=True)
 
         subprocess.check_call("make -j {make_parallelism} {source_name}.exe".format(make_parallelism=args.make_parallelism, source_name=source_name),
                               shell=True)
