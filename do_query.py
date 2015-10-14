@@ -4,7 +4,6 @@ import subprocess
 from contextlib import contextmanager
 import os
 
-
 @contextmanager
 def pushd(newDir):
     previousDir = os.getcwd()
@@ -22,7 +21,9 @@ if __name__ == "__main__":
     p.add_argument("querynum", help="tpch query number")
     p.add_argument("--no-regenerate", action="store_true", dest="no_regenerate", help="Do not re-run Raco on the query if the exe already exists")
     p.add_argument("--compiler", dest="compiler", default="push", help="Radish compilation strategy {push,iterator}")
+    p.add_argument("--join-type", dest="join_type", default="GrappaHashJoin", help="Radish join type")
     p.add_argument("--build-mode", dest="build_mode", default="Release", help="Grappa build mode {Release,Debug}")
+    p.add_argument("--groupby-semantics", dest="groupby_semantics", default="global", help="{global, partition}")
     p.add_argument("--make-parallelism", dest="make_parallelism", default="8", help="Argument to make -j")
     p.add_argument("--configure-command", dest="configure", default="grappa_configure", help="command to configure grappa on your system; defaults to 'grappa_configure'")
     p.add_argument("--plan-info", action="store_true", dest="plan_info", help="whether to store plan info to plan.db")
@@ -36,6 +37,14 @@ if __name__ == "__main__":
     else:
         source_name = 'grappa_tpc_{}'.format(query)
 
+    if args.join_type == 'GrappaSymmetricHashJoin':
+        source_name = source_name + '_sym'
+    elif args.join_type == 'GrappaOverSynchronizedSymmetricHashJoin':
+        source_name = source_name + '_osym'
+
+    if args.groupby_semantics == 'partition':
+        source_name = source_name + '_gbp'
+
     build_dir = "{GRAPPA_HOME}/build/Make+{mode}/applications/join".format(GRAPPA_HOME=GRAPPA_HOME, mode=args.build_mode)
 
     with pushd(RACO_HOME):
@@ -46,10 +55,15 @@ if __name__ == "__main__":
             --catalog {TPCH_RADISH}/catalog.py {plan_info} \
             {TPCH_RADISH}/{query}.myl \
             --key=scan_array_repr --value=symmetric_array \
-            --key=compiler --value={compiler}
+            --key=compiler --value={compiler} \
+            --key=join_type --value={join_type} \
+            --key=groupby_semantics --value={groupby_semantics} 
             """.format(TPCH_RADISH=TPCH_RADISH,
                        query=query,
-                       compiler=args.compiler, plan_info="--plan-info=plan.db" if args.plan_info else ""), shell=True)
+                       plan_info="--plan-info=plan.db" if args.plan_info else "",
+                       compiler=args.compiler,
+                       join_type=args.join_type,
+                       groupby_semantics=args.groupby_semantics), shell=True)
 
             subprocess.check_call("""mv {query}.cpp \
             {GRAPPA_HOME}/applications/join/{source_name}.cpp
