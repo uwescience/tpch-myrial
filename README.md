@@ -35,4 +35,4 @@ python do_all_queries_py.sh COMPILER_FLAGS
 
 ## Caveats
 
-- The queries are currently modified to omit sorting (`ORDER BY`) because MyriaL does not yet support ORDER BY (for no particular reason).
+- The queries are currently modified to omit sorting (`ORDER BY`) because [MyriaL does not yet support ORDER BY](https://github.com/uwescience/raco/issues/174).
