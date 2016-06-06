@@ -36,4 +36,4 @@ python do_all_queries_py.sh COMPILER_FLAGS
 ## Caveats
 
 - The queries are currently modified to omit sorting (`ORDER BY`) because [MyriaL does not yet support ORDER BY](https://github.com/uwescience/raco/issues/174).
-- If you want to use the templates for the ad-hoc TPC-H benchmark, then you will need to fix the date ranges (e.g., https://github.com/uwescience/tpch-myrial/blob/master/templates/4.sql). MyriaL doesn't have date intervals and qgen expects them.
+- If you want to use the templates for the ad-hoc TPC-H benchmark, then you will need to fix the date ranges (e.g., https://github.com/uwescience/tpch-myrial/blob/master/templates/4.sql). MyriaL doesn't have date intervals and qgen expects them. The easiest fix is to [extend Raco with a built-in function](https://github.com/uwescience/raco/issues/523).
