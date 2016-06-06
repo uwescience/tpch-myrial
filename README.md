@@ -13,6 +13,15 @@
 $ python gen_validation.py
 ```
 
+## See the plan of a query
+
+```bash
+$ $RACO_HOME/scripts/myrial [flag] q1.myl
+```
+
+Run `$RACO_HOME/scripts/myrial -h` for documentation about the different kinds of output.
+
+
 ## Compile the queries
 
 ```bash
