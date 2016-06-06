@@ -15,13 +15,13 @@ The queries are expressed as TPC-H `qgen` template files. The following command 
 using the test parameters from the TPC-H specification.
 
 ```bash
-$ python gen_validation.py
+python gen_validation.py
 ```
 
 ## See the plan of a query
 
 ```bash
-$ $RACO_HOME/scripts/myrial [flag] q1.myl
+$RACO_HOME/scripts/myrial [flag] q1.myl
 ```
 
 Run `$RACO_HOME/scripts/myrial -h` for documentation about the different kinds of output.
@@ -30,5 +30,5 @@ Run `$RACO_HOME/scripts/myrial -h` for documentation about the different kinds o
 ## Compile the queries to Grappa (Radish) programs
 
 ```bash
-$ python do_all_queries_py.sh
+python do_all_queries_py.sh
 ```
