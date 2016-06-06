@@ -30,5 +30,5 @@ Run `$RACO_HOME/scripts/myrial -h` for documentation about the different kinds o
 ## Compile the queries to Grappa (Radish) programs
 
 ```bash
-python do_all_queries_py.sh
+python do_all_queries_py.sh COMPILER_FLAGS
 ```
