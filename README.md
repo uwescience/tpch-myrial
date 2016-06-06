@@ -1,10 +1,10 @@
-# tpch-radish
+# tpch-myrial
 
 This is an implementation of TPC-H in the [MyriaL language](http://myria.cs.washington.edu/docs/myrial.html). You can use it to generate TPC-H query plans for any back end of the [Raco relational algebra compiler](https://github.com/uwescience/raco).
 
 ## Setup
 
-`tpch-radish` requires TPC-H qgen to generate SQL queries and [Raco](https://github.com/uwescience/raco) to generate the query plans.
+`tpch-myrial` requires TPC-H qgen to generate SQL queries and [Raco](https://github.com/uwescience/raco) to generate the query plans.
 
 - [Download qgen](http://www.tpc.org/tpch/tools_download/dbgen-download-request.asp)
 - Install Raco by following its README.md and then make sure to set `RACO_HOME` to the directory of your Raco
