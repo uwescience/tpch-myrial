@@ -4,12 +4,15 @@ This is an implementation of TPC-H in the [MyriaL language](http://myria.cs.wash
 
 ## Setup
 
-`tpch-radish` requires TPC-H qgen to generate SQL queries and [Raco](https://github.com/uwescience/raco) to generate the Grappa code.
+`tpch-radish` requires TPC-H qgen to generate SQL queries and [Raco](https://github.com/uwescience/raco) to generate the query plans.
 
 - [Download qgen](http://www.tpc.org/tpch/tools_download/dbgen-download-request.asp)
 - Install Raco by following its README.md and then make sure to set `RACO_HOME` to the directory of your Raco
 
 ## Generate the queries
+
+The queries are expressed as TPC-H `qgen` template files. The following command will run `qgen` on all the templates
+using the test parameters from the TPC-H specification.
 
 ```bash
 $ python gen_validation.py
