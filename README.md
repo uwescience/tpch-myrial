@@ -22,7 +22,7 @@ $ $RACO_HOME/scripts/myrial [flag] q1.myl
 Run `$RACO_HOME/scripts/myrial -h` for documentation about the different kinds of output.
 
 
-## Compile the queries
+## Compile the queries to Grappa (Radish) programs
 
 ```bash
 $ python do_all_queries_py.sh
