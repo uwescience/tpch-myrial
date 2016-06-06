@@ -1,5 +1,7 @@
 # tpch-radish
 
+This is an implementation of TPC-H in the [MyriaL language](http://myria.cs.washington.edu/docs/myrial.html). You can use it to generate TPC-H query plans for any back end of the [Raco relational algebra compiler](https://github.com/uwescience/raco).
+
 ## Setup
 
 `tpch-radish` requires TPC-H qgen to generate SQL queries and [Raco](https://github.com/uwescience/raco) to generate the Grappa code.
