@@ -16,8 +16,11 @@ if __name__ == '__main__':
 
     args = p.parse_args(sys.argv[1:])
 
-
-    tpch_utils = args.tpch + '/dbgen'
+    # allow specify either root tpch dir or dbgen dir
+    if os.path.isdir(os.path.join(args.tpch, 'dbgen')):
+        tpch_utils = os.path.join(args.tpch, 'dbgen')
+    else:
+        tpch_utils = args.tpch
 
     here = os.path.abspath(os.path.dirname(__file__))
 
